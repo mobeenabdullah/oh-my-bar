@@ -1,1 +1,1 @@
-# oh-my-bar
+# Oh My Bar 🍺
