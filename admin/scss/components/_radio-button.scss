@@ -24,7 +24,7 @@
     }
     & span {
       position: absolute;
-      background-color: rgba(0, 0, 0, 0.2);
+      background-color: rgba(var(--omb-black), 0.2);
     }
     &.top-align {
       & span {
@@ -47,19 +47,19 @@
     display: none;
     &#bottom:checked {
       & ~ .bottom-align {
-        background: var(--primary-color);
-        border-color: var(--primary-color);
+        background: var(--omb-primary-color);
+        border-color: var(--omb-primary-color);
         & span {
-          background-color: var(--white-color);
+          background-color: var(--omb-white);
         }
       }
     }
     &#top:checked {
       & ~ .top-align {
-        background: var(--primary-color);
-        border-color: var(--primary-color);
+        background: var(--omb-primary-color);
+        border-color: var(--omb-primary-color);
         & span {
-          background-color: var(--white-color);
+          background-color: var(--omb-white);
         }
       }
     }

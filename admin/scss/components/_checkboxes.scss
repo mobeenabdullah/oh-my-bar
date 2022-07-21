@@ -8,7 +8,7 @@
     width: 30px;
     height: 15px;
     border-radius: 20px;
-    background: var(--light-gray);
+    background: var(--omb-light-gray);
     transition: background 0.28s cubic-bezier(0.4, 0, 0.2, 1);
     vertical-align: middle;
     cursor: pointer;
@@ -31,7 +31,7 @@
     opacity: 0;
     &:checked {
       & + .switch__wrapper-label {
-        background: var(--primary-color);
+        background: var(--omb-primary-color);
         &::before {
           left: 16px;
           background: #fff;
