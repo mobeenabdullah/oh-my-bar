@@ -1,0 +1,23 @@
+.color_field-wrapper {
+  display: flex;
+  position: relative;
+  gap: 10px;
+  & .color-box {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 14px;
+    height: 14px;
+    padding: 0.5em;
+    pointer-events: none;
+    border-radius: 0.1em;
+    border-radius: 50%;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+  }
+}
+
+.pickr {
+  & .pcr-button {
+    opacity: 0;
+  }
+}

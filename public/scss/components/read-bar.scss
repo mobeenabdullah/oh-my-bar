@@ -1,0 +1,20 @@
+progress {
+  &.my_progressbar {
+    position: fixed;
+    appearance: none;
+    border: none;
+    z-index: 1000;
+  }
+  &.rounded {
+    border-radius: 50px;
+    &::-webkit-progress-value {
+      border-radius: 50px;
+    }
+  }
+  &.normal {
+    border-radius: 0;
+    &::-webkit-progress-value {
+      border-radius: 0;
+    }
+  }
+}
