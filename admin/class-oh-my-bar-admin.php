@@ -52,6 +52,10 @@ class Oh_My_Bar_Admin {
 		$this->plugin_name = $plugin_name;
 		$this->version = $version;
 
+		// Requires settings 
+		require_once dirname(__FILE__) . '/inc/class-read-bar.php';
+		require_once dirname(__FILE__) . '/inc/class-menu.php';
+		
 	}
 
 	/**
