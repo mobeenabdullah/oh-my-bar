@@ -13,23 +13,27 @@
     /*
      * Range Slider
      */
-    var selector = "[data-rangeslider]";
-    var $element = $(selector);
+    let range_selector = "[data-rangeslider]";
+    let $element = $(range_selector);
 
     function valueOutput(element) {
-      var value = element.value;
-      var output =
+      let value = element.value;
+      let output =
         element.parentNode.getElementsByClassName("output-value")[0] ||
         element.parentNode.parentNode.getElementsByClassName("output-value")[0];
       output.value = value;
     }
 
-    $(document).on("input", 'input[type="range"], ' + selector, function (e) {
-      valueOutput(e.target);
-    });
+    $(document).on(
+      "input",
+      'input[type="range"], ' + range_selector,
+      function (e) {
+        valueOutput(e.target);
+      }
+    );
 
     $(document).on("input", "input[data-rangeslider]", function (e) {
-      $(selector, e.target.parentNode).rangeslider({
+      $(range_selector, e.target.parentNode).rangeslider({
         polyfill: false,
       });
     });

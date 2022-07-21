@@ -51,6 +51,9 @@ class Oh_My_Bar_Public {
 
 		$this->plugin_name = $plugin_name;
 		$this->version = $version;
+		include_once dirname(__FILE__) . '/partials/oh-my-bar-public-display.php';
+        $displayBar = new Display_Read_Bar();
+        $displayBar->register();
 
 	}
 
