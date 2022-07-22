@@ -29,3 +29,21 @@
 if ( ! defined( 'WP_UNINSTALL_PLUGIN' ) ) {
 	exit;
 }
+
+// Options cleanup
+$read_bar_options = [
+	'rb_background_color',
+	'rb_foreground_color',
+	'rb_background_opacity',
+	'rb_bar_shadow',
+	'rb_bar_rounded',
+	'rb_bar_placement',
+	'rb_bar_height',
+	'rb_show_home_page',
+	'rb_show_single_post',
+	'rb_show_single_page',
+	'rb_show_archive',
+];
+foreach ( $read_bar_options as $option ) {
+	delete_option( $option );
+}
