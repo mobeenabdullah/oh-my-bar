@@ -7,7 +7,7 @@ class Read_Bar_Menu {
 
     public function read_bar_menu() {
         add_menu_page( 
-            __('Read Bar Settings', 'my-read-bar'),
+            __('Oh My Bar Settings', 'my-read-bar'),
             'Read Bar Settings',
             'manage_options',
             'read_bar_setting',
