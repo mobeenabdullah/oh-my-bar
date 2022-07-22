@@ -1,40 +1,31 @@
 <?php
 class Read_Bar_Settings {
     public function __construct() {
-        $this->background_color = (!empty(get_option('rb_background_color'))) ? get_option('rb_background_color') : "#e6e6e6";
-        $this->foreground_color = (!empty(get_option('rb_foreground_color'))) ? get_option('rb_foreground_color') : "#e3dc29";
-        $this->background_opacity = (!empty(get_option('rb_background_opacity'))) ? get_option('rb_background_opacity') : 0; 
-        $this->bar_shadow = (!empty(get_option('rb_bar_shadow'))) ? get_option('rb_bar_shadow') : 1;
-        $this->bar_rounded = (!empty(get_option('rb_bar_rounded'))) ? get_option('rb_bar_rounded') : 1;
-        $this->bar_placement = (!empty(get_option('rb_bar_placement'))) ? get_option('rb_bar_placement') : "top"; 
-        $this->bar_height = (!empty(get_option('rb_bar_height'))) ? get_option('rb_bar_height') : 10;
-        $this->show_home_page = (!empty(get_option('rb_show_home_page'))) ? get_option('rb_show_home_page') : 0; 
-        $this->show_single_post = (!empty(get_option('rb_show_single_post'))) ? get_option('rb_show_single_post') : 1; 
-        $this->show_single_page = (!empty(get_option('rb_show_single_page'))) ? get_option('rb_show_single_page') : 0; 
-        $this->show_archive_page = (!empty(get_option('rb_show_archive'))) ? get_option('rb_show_archive') : 0;    
-        add_action('admin_init', array($this, 'rb_settings_init'));  
+        add_action('admin_init', array($this, 'rb_settings_init'));
     }
     
     public function rb_settings_init() {
         $read_bar_settings_array = [
-            'rb_background_color',
-            'rb_foreground_color',
-            'rb_background_opacity',
-            'rb_bar_shadow',
-            'rb_bar_rounded',
-            'rb_bar_placement',
-            'rb_bar_height',
-            'rb_show_home_page',
-            'rb_show_single_post',
-            'rb_show_single_page',
-            'rb_show_archive',            
+            'rb_background_color' => '#e6e6e6',
+            'rb_foreground_color' => '#e3dc29',
+            'rb_background_opacity' => 0,
+            'rb_bar_shadow' => 1,
+            'rb_bar_rounded' => 1,
+            'rb_bar_placement' => 'top',
+            'rb_bar_height' => 8,
+            'rb_show_home_page' => 0,
+            'rb_show_single_post' => 1,
+            'rb_show_single_page' => 0,
+            'rb_show_archive' => 0,            
         ];
 
-        foreach($read_bar_settings_array as $read_bar_setting) {
-            register_setting('read_bar_setting', $read_bar_setting);
+        foreach($read_bar_settings_array as $key => $value) {
+            register_setting('read_bar_setting', $key, ['default' => $value]);
         }
+        
+        $this->get_settings_feilds();
 
-        add_settings_section( 'read_bar_section', '', '', 'read_bar_setting' );      
+        add_settings_section( 'read_bar_section', '', '', 'read_bar_setting' ); 
         
         add_settings_field(
             'rb_background_color_setting_field',
@@ -117,6 +108,20 @@ class Read_Bar_Settings {
 
     }
 
+    public function get_settings_feilds() {
+            $this->background_color = get_option('rb_background_color');
+            $this->foreground_color = get_option('rb_foreground_color');
+            $this->background_opacity = get_option('rb_background_opacity'); 
+            $this->bar_shadow = get_option('rb_bar_shadow');
+            $this->bar_rounded = get_option('rb_bar_rounded');
+            $this->bar_placement = get_option('rb_bar_placement'); 
+            $this->bar_height = get_option('rb_bar_height');
+            $this->show_home_page = get_option('rb_show_home_page'); 
+            $this->show_single_post = get_option('rb_show_single_post'); 
+            $this->show_single_page = get_option('rb_show_single_page'); 
+            $this->show_archive_page = get_option('rb_show_archive');
+    }
+
     public function rb_background_color_cb() {
         ?>        
         <div class="color_field-wrapper color_background"> 
@@ -167,8 +172,8 @@ class Read_Bar_Settings {
     public function rb_bar_placement_cb() {
         ?>
         <div class="bar__placement">
-            <input type="radio" id="top" class="bar__placement-option" name="rb_bar_placement_cb" value="top" <?php checked('top', esc_attr($this->bar_placement), true); ?>>            
-            <input type="radio" id="bottom" class="bar__placement-option" name="rb_bar_placement_cb" value="bottom" <?php checked('bottom', esc_attr($this->bar_placement), true); ?>>            
+            <input type="radio" id="top" class="bar__placement-option" name="rb_bar_placement" value="top" <?php checked('top', esc_attr($this->bar_placement), true); ?>>            
+            <input type="radio" id="bottom" class="bar__placement-option" name="rb_bar_placement" value="bottom" <?php checked('bottom', esc_attr($this->bar_placement), true); ?>>            
             <label for="top" class="bar__placement-label top-align">
                 <span></span>
             </label>          
@@ -215,7 +220,7 @@ class Read_Bar_Settings {
         </div> 
 
         <div class="switch__wrapper display-on">
-            <input type="checkbox" id="rb_show_archive" name="rb_show_archive" value="1" <?php checked(1, esc_attr($this->show_archive), true); ?>>
+            <input type="checkbox" id="rb_show_archive" name="rb_show_archive" value="1" <?php checked(1, esc_attr($this->show_archive_page), true); ?>>
             <label class="switch__wrapper-label" for="rb_show_archive"></label>        
             <div class="switch__wrapper-text">            
                 <span><?php esc_html_e('Archives & Categories', 'oh-my-bar'); ?></span>

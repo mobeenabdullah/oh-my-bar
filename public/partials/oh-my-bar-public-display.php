@@ -2,17 +2,18 @@
 
 class Display_Read_Bar {
     public function __construct() {    
-        $this->background_color = (!empty(get_option('rb_background_color'))) ? get_option('rb_background_color') : "#e6e6e6";
-        $this->foreground_color = (!empty(get_option('rb_foreground_color'))) ? get_option('rb_foreground_color') : "#e3dc29";
-        $this->background_opacity = (!empty(get_option('rb_background_opacity'))) ? get_option('rb_background_opacity') : 0; 
-        $this->bar_shadow = (!empty(get_option('rb_bar_shadow'))) ? get_option('rb_bar_shadow') : 1;
-        $this->bar_rounded = (!empty(get_option('rb_bar_rounded'))) ? get_option('rb_bar_rounded') : 1;
-        $this->bar_placement = (!empty(get_option('rb_bar_placement'))) ? get_option('rb_bar_placement') : "top"; 
-        $this->bar_height = (!empty(get_option('rb_bar_height'))) ? get_option('rb_bar_height') : 10;
-        $this->show_home_page = (!empty(get_option('rb_show_home_page'))) ? get_option('rb_show_home_page') : 0; 
-        $this->show_single_post = (!empty(get_option('rb_show_single_post'))) ? get_option('rb_show_single_post') : 1; 
-        $this->show_single_page = (!empty(get_option('rb_show_single_page'))) ? get_option('rb_show_single_page') : 0; 
-        $this->show_archive_page = (!empty(get_option('rb_show_archive'))) ? get_option('rb_show_archive') : 0; 
+        $this->rb_default_settings = get_option('rb_default_settings');
+        $this->background_color = get_option('rb_background_color');
+        $this->foreground_color = get_option('rb_foreground_color');
+        $this->background_opacity = get_option('rb_background_opacity'); 
+        $this->bar_shadow = get_option('rb_bar_shadow');
+        $this->bar_rounded = get_option('rb_bar_rounded');
+        $this->bar_placement = get_option('rb_bar_placement'); 
+        $this->bar_height = get_option('rb_bar_height');
+        $this->show_home_page = get_option('rb_show_home_page'); 
+        $this->show_single_post = get_option('rb_show_single_post'); 
+        $this->show_single_page = get_option('rb_show_single_page'); 
+        $this->show_archive_page = get_option('rb_show_archive');
         
     }
 
