@@ -1,8 +1,9 @@
 :root {
-	--white-color: #ffffff;
-	--black-color: #000000;
-	--primary-color: #6f73d2;
-	--light-gray: #b8b8b8;
+	--omb-white: #fff;
+	--omb-primary-color: #6f73d2;
+	--omb-light-gray: #b8b8b8;
+	--omb-dark-gray: #666666;
+	--omb-black: #000;
 }
 
 table tr.custom_style_fields {
@@ -14,7 +15,7 @@ table tr.custom_style_fields {
 }
 
 div#wpbody-content form {
-	background: #ffffff;
+	background: var(--omb-white);
 	padding: 0 20px 0 20px;
 	margin-right: 20px;
 	margin-top: 20px;
@@ -24,7 +25,7 @@ div#wpbody-content form .mpb-title {
 	font-size: 18px;
 	font-weight: 600;
 	padding-bottom: 10px;
-	border-bottom: 1px solid rgba(0, 0, 0, 0.09);
+	border-bottom: 1px solid rgba(var(--omb-black), 0.09);
 }
 
 .switch__wrapper {
@@ -36,10 +37,10 @@ div#wpbody-content form .mpb-title {
 	position: absolute;
 	top: 0;
 	left: 0;
-	width: 30px;
-	height: 15px;
+	width: 34px;
+	height: 18px;
 	border-radius: 20px;
-	background: var(--light-gray);
+	background: var(--omb-light-gray);
 	transition: background 0.28s cubic-bezier(0.4, 0, 0.2, 1);
 	vertical-align: middle;
 	cursor: pointer;
@@ -49,8 +50,8 @@ div#wpbody-content form .mpb-title {
 .switch__wrapper-label::before {
 	content: "";
 	position: absolute;
-	top: 2px;
-	left: 3px;
+	top: 3.5px;
+	left: 4px;
 	width: 11px;
 	height: 11px;
 	background: #fafafa;
@@ -63,11 +64,12 @@ div#wpbody-content form .mpb-title {
 }
 
 .switch__wrapper input:checked + .switch__wrapper-label {
-	background: var(--primary-color);
+	background: var(--omb-primary-color);
 }
 
 .switch__wrapper input:checked + .switch__wrapper-label::before {
-	left: 16px;
+	top: 3.5px;
+	left: 19px;
 	background: #fff;
 }
 
@@ -131,21 +133,21 @@ div#wpbody-content form .mpb-title {
 }
 
 .bar__placement-option[type="radio"]#bottom:checked ~ .bottom-align {
-	background: var(--primary-color);
-	border-color: var(--primary-color);
+	background: var(--omb-primary-color);
+	border-color: var(--omb-primary-color);
 }
 
 .bar__placement-option[type="radio"]#bottom:checked ~ .bottom-align span {
-	background-color: var(--white-color);
+	background-color: var(--omb-white);
 }
 
 .bar__placement-option[type="radio"]#top:checked ~ .top-align {
-	background: var(--primary-color);
-	border-color: var(--primary-color);
+	background: var(--omb-primary-color);
+	border-color: var(--omb-primary-color);
 }
 
 .bar__placement-option[type="radio"]#top:checked ~ .top-align span {
-	background-color: var(--white-color);
+	background-color: var(--omb-white);
 }
 
 .range__slider {
@@ -159,10 +161,10 @@ div#wpbody-content form .mpb-title {
 	position: relative;
 	font-size: 16px;
 	font-weight: 600;
-	background-color: var(--primary-color);
+	background-color: var(--omb-primary-color);
 	padding: 0 10px;
 	border-radius: 5px;
-	color: #ffffff;
+	color: var(--omb-white);
 	transform: translateX(24px);
 	width: 20px;
 	text-align: center;
@@ -172,7 +174,7 @@ div#wpbody-content form .mpb-title {
 	content: "";
 	width: 6px;
 	height: 6px;
-	background-color: var(--primary-color);
+	background-color: var(--omb-primary-color);
 	position: absolute;
 	top: 50%;
 	left: -3px;
@@ -185,8 +187,9 @@ div#wpbody-content form .mpb-title {
 	left: 20px;
 	font-size: 12px;
 	border-radius: 4px;
-	border: 1px solid var(--light-gray);
+	border: 1px solid var(--omb-dark-gray);
 	text-align: center;
+	color: var(--omb-dark-gray);
 }
 
 .rangeslider--horizontal {
@@ -203,26 +206,28 @@ div#wpbody-content form .mpb-title {
 	position: relative;
 	width: 14px;
 	height: 14px;
-	background-color: var(--primary-color);
+	background-color: var(--omb-primary-color);
 	box-shadow: none;
 	background-image: none;
+	border: none !important;
 }
 
 .rangeslider__handle::after {
 	width: 10px;
 	height: 10px;
-	background-color: var(--primary-color);
+	background-color: transparent;
 	line-height: 14px;
-	background: #ffffff;
+	background-image: none !important;
 }
 
 .rangeslider__handle:active {
-	background-color: var(--primary-color);
-	background-image: none;
+	background-color: var(--omb-primary-color);
+	background-image: none !important;
+	border: none !important;
 }
 
 .rangeslider__fill {
-	background-color: var(--primary-color);
+	background-color: var(--omb-primary-color);
 	box-shadow: none;
 }
 
@@ -242,7 +247,11 @@ div#wpbody-content form .mpb-title {
 	pointer-events: none;
 	border-radius: 0.1em;
 	border-radius: 50%;
-	border: 1px solid rgba(0, 0, 0, 0.1);
+	border: 1px solid rgba(var(--omb-black), 0.1);
+}
+
+.color_field-wrapper input {
+	border: 1px solid var(--omb-dark-gray);
 }
 
 .pickr .pcr-button {

@@ -100,9 +100,9 @@ class Oh_My_Bar_Admin {
 		 * between the defined hooks and the functions defined in this
 		 * class.
 		 */
-		wp_enqueue_script('color-picker', 'https://cdn.jsdelivr.net/npm/@simonwep/pickr/dist/pickr.min.js', array( 'jquery' ), $this->version, false);        
-		wp_enqueue_script('range-slider', plugin_dir_url(__FILE__) . 'js/rangeslider.js', array( 'jquery' ), $this->version, false);
-		wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/oh-my-bar-admin.js', array( 'jquery' ), $this->version, false );
+		wp_enqueue_script('color-picker', 'https://cdn.jsdelivr.net/npm/@simonwep/pickr/dist/pickr.min.js', array( 'jquery' ), $this->version, true);        
+		wp_enqueue_script('range-slider', plugin_dir_url(__FILE__) . 'js/rangeslider.js', array( 'jquery' ), $this->version, true);
+		wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/oh-my-bar-admin.js', array( 'jquery' ), $this->version, true);
 
 	}
 

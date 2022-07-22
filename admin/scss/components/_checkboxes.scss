@@ -5,10 +5,10 @@
     position: absolute;
     top: 0;
     left: 0;
-    width: 30px;
-    height: 15px;
+    width: 34px;
+    height: 18px;
     border-radius: 20px;
-    background: var(--light-gray);
+    background: var(--omb-light-gray);
     transition: background 0.28s cubic-bezier(0.4, 0, 0.2, 1);
     vertical-align: middle;
     cursor: pointer;
@@ -16,8 +16,8 @@
     &::before {
       content: "";
       position: absolute;
-      top: 2px;
-      left: 3px;
+      top: 3.5px;
+      left: 4px;
       width: 11px;
       height: 11px;
       background: #fafafa;
@@ -31,9 +31,10 @@
     opacity: 0;
     &:checked {
       & + .switch__wrapper-label {
-        background: var(--primary-color);
+        background: var(--omb-primary-color);
         &::before {
-          left: 16px;
+          top: 3.5px;
+          left: 19px;
           background: #fff;
         }
       }

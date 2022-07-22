@@ -1,9 +1,9 @@
 :root {
-	--white-color: #ffffff;
-	--black-color: #000000;
-	--primary-color: #e3dc29;
-	--light-gray: #e6e6e6;
-	--primary-shadow: #e3dc29bf;
+	--omb-white: #fff;
+	--omb-primary-color: #e3dc29;
+	--omb-primary-shadow-color: #e3dc29bf;
+	--omb-light-gray: #b8b8b8;
+	--omb-black: #000;
 }
 
 progress.my_progressbar {

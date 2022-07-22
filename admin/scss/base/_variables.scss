@@ -3,16 +3,16 @@ $variable-prefix: omb- !default;
 
 // colors-variables
 $white: #fff !default;
-$primary-color: #e3dc29 !default;
-$primary-shadow-color: #e3dc29bf !default;
+$primary-color: #6f73d2 !default;
 $light-gray: #b8b8b8 !default;
+$dark-gray: #666666 !default;
 $black: #000 !default;
 
 // colors-map
 $colors: (
   "white": $white,
   "primary-color": $primary-color,
-  "primary-shadow-color": $primary-shadow-color,
   "light-gray": $light-gray,
+  "dark-gray": $dark-gray,
   "black": $black,
 ) !default;
