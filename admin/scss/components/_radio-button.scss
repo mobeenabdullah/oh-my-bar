@@ -24,7 +24,7 @@
     }
     & span {
       position: absolute;
-      background-color: rgba(var(--omb-black), 0.2);
+      background-color: rgba($black, 0.2);
     }
     &.top-align {
       & span {

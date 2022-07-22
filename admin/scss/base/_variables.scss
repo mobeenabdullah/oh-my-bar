@@ -5,6 +5,7 @@ $variable-prefix: omb- !default;
 $white: #fff !default;
 $primary-color: #6f73d2 !default;
 $light-gray: #b8b8b8 !default;
+$dark-gray: #666666 !default;
 $black: #000 !default;
 
 // colors-map
@@ -12,5 +13,6 @@ $colors: (
   "white": $white,
   "primary-color": $primary-color,
   "light-gray": $light-gray,
+  "dark-gray": $dark-gray,
   "black": $black,
 ) !default;

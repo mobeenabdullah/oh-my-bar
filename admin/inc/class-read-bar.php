@@ -182,7 +182,7 @@ class Read_Bar_Settings {
     public function rb_bar_height_cb() {       
         ?>
         <div class="range__slider slider-height">
-            <input type="range" min="10" max="20" step="1" name="rb_bar_height" value="<?php echo esc_attr($this->bar_height);?>" data-rangeslider>
+            <input type="range" min="0" max="20" step="1" name="rb_bar_height" value="<?php echo esc_attr($this->bar_height);?>" data-rangeslider>
             <input class="output-value" disabled />
         </div>
         <?php
