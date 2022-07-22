@@ -7,7 +7,7 @@ table tr.custom_style_fields {
 }
 
 div#wpbody-content form {
-  background: #ffffff;
+  background: var(--omb-white);
   padding: 0 20px 0 20px;
   margin-right: 20px;
   margin-top: 20px;
@@ -16,5 +16,5 @@ div#wpbody-content form .mpb-title {
   font-size: 18px;
   font-weight: 600;
   padding-bottom: 10px;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.09);
+  border-bottom: 1px solid rgba(var(--omb-black), 0.09);
 }
