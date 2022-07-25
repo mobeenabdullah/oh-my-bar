@@ -21,7 +21,7 @@
       let output =
         element.parentNode.getElementsByClassName("output-value")[0] ||
         element.parentNode.parentNode.getElementsByClassName("output-value")[0];
-      output.value = value;
+      output.textContent = value;
     }
 
     $(document).on(

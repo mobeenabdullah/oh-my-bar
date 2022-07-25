@@ -1,7 +1,10 @@
 .color_field-wrapper {
   display: flex;
   position: relative;
-  gap: 10px;
+  gap: 15px;
+  flex-direction: row-reverse;
+  max-width: 300px;
+  justify-content: start;
   & .color-box {
     position: absolute;
     top: 0;
@@ -12,10 +15,15 @@
     pointer-events: none;
     border-radius: 0.1em;
     border-radius: 50%;
-    border: 1px solid rgba(var(--omb-black), 0.1);
   }
   & input {
-    border: 1px solid var(--omb-dark-gray);
+    border: 1px solid var(--omb-light-gray);
+    width: 150px;
+  }
+  & .color_switch-wrapper {
+    position: relative;
+    width: 28px;
+    height: 28px;
   }
 }
 

@@ -7,8 +7,8 @@ class Read_Bar_Menu {
 
     public function read_bar_menu() {
         add_menu_page( 
-            __('Oh My Bar Settings', 'my-read-bar'),
-            'Read Bar Settings',
+            __('Read Bar Settings', 'my-read-bar'),
+            'Oh My Bar',
             'manage_options',
             'read_bar_setting',
             array($this,'read_bar_setting_page_cb'),
@@ -21,7 +21,7 @@ class Read_Bar_Menu {
         if (!current_user_can('manage_options')) return;
         ?>
         <form method="post" action="options.php">
-            <div class="wrap">     
+            <div class="omb_main-wrapper">     
                 <h1 class="omb-title"><?php echo esc_html(get_admin_page_title()); ?></h1>
                 <?php
                 settings_errors(); 

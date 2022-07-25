@@ -6,7 +6,7 @@
   justify-content: space-evenly;
   border-radius: 5px;
   &-label {
-    background: #fff;
+    background: var(--omb-white);
     height: 100%;
     width: 30px;
     display: flex;
@@ -14,7 +14,7 @@
     justify-content: space-evenly;
     cursor: pointer;
     border-radius: 0;
-    border: 1px solid #c5c5c5;
+    border: 1px solid var(--omb-light-gray);
     transition: all 0.5s ease;
     margin: 0 10px 0 0;
     position: relative;
@@ -42,24 +42,40 @@
         height: 5px;
       }
     }
+    &:hover {
+      border-color: darken($light-gray, 5%);
+      & span {
+        background-color: darken($light-gray, 5%);
+      }
+    }
   }
   &-option[type="radio"] {
     display: none;
     &#bottom:checked {
       & ~ .bottom-align {
+        transition: all 0.2s;
         background: var(--omb-primary-color);
         border-color: var(--omb-primary-color);
         & span {
           background-color: var(--omb-white);
         }
+        &:hover {
+          background-color: darken($primary-color, 5%);
+          border-color: darken($primary-color, 5%);
+        }
       }
     }
     &#top:checked {
       & ~ .top-align {
+        transition: all 0.2s;
         background: var(--omb-primary-color);
         border-color: var(--omb-primary-color);
         & span {
           background-color: var(--omb-white);
+        }
+        &:hover {
+          background-color: darken($primary-color, 5%);
+          border-color: darken($primary-color, 5%);
         }
       }
     }
