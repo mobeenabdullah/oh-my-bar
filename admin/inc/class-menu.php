@@ -22,7 +22,7 @@ class Read_Bar_Menu {
         ?>
         <form method="post" action="options.php">
             <div class="wrap">     
-                <h1 class="mpb-title"><?php echo esc_html(get_admin_page_title()); ?></h1>
+                <h1 class="omb-title"><?php echo esc_html(get_admin_page_title()); ?></h1>
                 <?php
                 settings_errors(); 
                 if(wp_verify_nonce('test-nonce') || isset($_GET[ 'tab' ]) ) {

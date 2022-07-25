@@ -32,6 +32,7 @@ if ( ! defined( 'WP_UNINSTALL_PLUGIN' ) ) {
 
 // Options cleanup
 $read_bar_options = [
+	'rb_enable_bar',
 	'rb_background_color',
 	'rb_foreground_color',
 	'rb_background_opacity',
