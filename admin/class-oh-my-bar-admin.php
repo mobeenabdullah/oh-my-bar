@@ -53,8 +53,8 @@ class Oh_My_Bar_Admin {
 		$this->version = $version;
 
 		// Requires settings 
-		require_once dirname(__FILE__) . '/inc/class-read-bar.php';
 		require_once dirname(__FILE__) . '/inc/class-menu.php';
+		require_once dirname(__FILE__) . '/inc/class-read-bar.php';
 		
 	}
 
