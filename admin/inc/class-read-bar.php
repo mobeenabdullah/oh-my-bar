@@ -83,6 +83,9 @@ class Read_Bar_Settings {
             array($this,'rb_background_opacity_cb'),
             'read_bar_setting',
             'read_bar_section',
+            array(
+                'default_value' => 0,
+            )
         );        
         
         add_settings_field(
@@ -125,7 +128,7 @@ class Read_Bar_Settings {
             'read_bar_setting',
             'read_bar_section',
             array(
-                'default_value' => 8,
+                'default_value' => 10,
             )
         );
 
@@ -155,9 +158,11 @@ class Read_Bar_Settings {
         $value = (empty(get_option('rb_background_color'))) ? $args['default_value'] : get_option('rb_background_color');
         ?>        
         <div class="color_field-wrapper color_background"> 
-            <div class="color-picker-bg"></div>
-            <div class="color-box" style="background-color: <?php echo esc_attr($value);?>;"></div>        
-            <input type="text" name="rb_background_color" value="<?php echo esc_attr($value); ?>">
+            <div class="color_switch-wrapper">
+                <div class="color-picker-bg"></div>
+                <div class="color-box" style="background-color: <?php echo esc_attr($value);?>;"></div>        
+            </div>
+            <input type="hidden" name="rb_background_color" value="<?php echo esc_attr($value); ?>">
         </div>
         <?php
     }
@@ -166,18 +171,24 @@ class Read_Bar_Settings {
         $value = (empty(get_option('rb_foreground_color'))) ? $args['default_value'] : get_option('rb_foreground_color');
         ?>
         <div class="color_field-wrapper color_foreground">
-            <div class="color-picker-fg"></div>
-            <div class="color-box" style="background-color: <?php echo esc_attr($value);?>;"></div>
-            <input type="text" name="rb_foreground_color" value="<?php echo esc_attr($value);?>">
+            <div class="color_switch-wrapper">
+                <div class="color-picker-fg"></div>
+                <div class="color-box" style="background-color: <?php echo esc_attr($value);?>;"></div>
+            </div>
+            <input type="hidden" name="rb_foreground_color" value="<?php echo esc_attr($value);?>">
         </div>
         <?php
     }
 
-    public function rb_background_opacity_cb() {
+    public function rb_background_opacity_cb($args) {
+        $value = (empty(get_option('rb_background_opacity'))) ? $args['default_value'] : get_option('rb_background_opacity');        
         ?>
         <div class="range__slider slider_bg-transparent">
-            <input type="range" min="0" max="100" step="1" name="rb_background_opacity" value="<?php echo esc_attr(get_option('rb_background_opacity'));?>" data-rangeslider>
-            <input class="output-value" disabled />
+            <input type="range" min="0" max="100" step="1" name="rb_background_opacity" value="<?php echo esc_attr($value);?>" data-rangeslider>
+            <div class="display__value-wrapper">
+                <span class="output-value"></span>
+                <span>%</span>
+            </div>
         </div>
         <?php
     }
@@ -223,7 +234,10 @@ class Read_Bar_Settings {
         ?> 
         <div class="range__slider slider-height">
             <input type="range" min="0" max="20" step="1" name="rb_bar_height" value="<?php echo esc_attr($value);?>" data-rangeslider>
-            <input class="output-value" disabled />
+            <div class="display__value-wrapper">
+                <span class="output-value"></span>
+                <span>px</span>
+            </div>            
         </div>
         <?php
     }
