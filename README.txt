@@ -24,6 +24,12 @@ Oh My Bar is a WordPress plugins which will eventually have many type of bars bu
 * Lightweight and fast
 * Convenient User Interface
 
+**Credits** :
+
+* [Range Slider](https://rangeslider.js.org/) - Library for customized range slider
+* [Pickr](https://simonwep.github.io/pickr/) - Library for a simple color picker
+
+
 == Installation ==
 
 1. Install the plugin and activate it from plugins page in the Dashboard
