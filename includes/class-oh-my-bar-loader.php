@@ -125,5 +125,4 @@ class Oh_My_Bar_Loader {
 		}
 
 	}
-
 }

@@ -26,7 +26,6 @@
  */
 class Oh_My_Bar_i18n {
 
-
 	/**
 	 * Load the plugin text domain for translation.
 	 *
@@ -41,7 +40,4 @@ class Oh_My_Bar_i18n {
 		);
 
 	}
-
-
-
 }
