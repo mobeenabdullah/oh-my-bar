@@ -32,3 +32,10 @@
     opacity: 0;
   }
 }
+.pcr-app {
+  & .pcr-interaction {
+    & .pcr-save {
+      padding: 8.6px;
+    }
+  }
+}

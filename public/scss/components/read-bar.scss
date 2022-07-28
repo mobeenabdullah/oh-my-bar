@@ -1,9 +1,13 @@
 progress {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
   &.my_progressbar {
     position: fixed;
     appearance: none;
     border: none;
     z-index: 1000;
+    width: 100% !important;
   }
   &.rounded {
     border-radius: 50px;
