@@ -214,5 +214,4 @@ class Oh_My_Bar {
 	public function get_version() {
 		return $this->version;
 	}
-
 }

@@ -32,5 +32,4 @@ class Oh_My_Bar_Deactivator {
 	public static function deactivate() {
 
 	}
-
 }
