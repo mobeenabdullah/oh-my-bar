@@ -30,7 +30,7 @@ if ( ! defined( 'WP_UNINSTALL_PLUGIN' ) ) {
 	exit;
 }
 
-// Options cleanup
+// Options cleanup on uninstallation
 $read_bar_options = [
 	'rb_enable_bar',
 	'rb_background_color',

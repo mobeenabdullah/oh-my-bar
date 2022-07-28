@@ -53,9 +53,9 @@ class Oh_My_Bar_Public {
 		$this->version = $version;
 
 		/**
-		 * require public display
+		 * Requiring public display
 		 */
-		require_once plugin_dir_path( dirname( __FILE__ ) ) . '/public/partials/oh-my-bar-public-display.php';
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . '/public/inc/oh-my-bar-public-display.php';
 
 	}
 
