@@ -1,5 +1,19 @@
 <?php
+
+/**
+ * Setting fields for Read Bar
+ *
+ * @package    Oh_My_Bar
+ * @subpackage Oh_My_Bar/inc
+ * @author     Mobeen Abdullah <mobeenabdullah@gmail.com>
+ */
 class Read_Bar_Settings {
+
+	/**
+	 * Registering Read Bar settings and filtering the options before updating in the DB
+	 *
+	 * @since    0.1.0
+	 */
     public function __construct() {
         add_action('admin_menu', array($this, 'rb_settings_init'));
 
@@ -17,6 +31,11 @@ class Read_Bar_Settings {
         }
     }
 
+	/**
+	 * Handling switch/checkbox value
+	 *
+	 * @since    0.1.0
+	 */
     public function handle_switch_value( $new_value, $old_value ) {
         if($new_value !== 'on') {
             return esc_html('off');
@@ -24,7 +43,12 @@ class Read_Bar_Settings {
             return esc_html('on');
         }
     }
-    
+
+	/**
+	 * Adding settings section and registering fields
+	 *
+	 * @since    0.1.0
+	 */
     public function rb_settings_init() {
         $rb_setting_fields_array = [
             'rb_enable_bar',
@@ -38,10 +62,10 @@ class Read_Bar_Settings {
             'rb_show_home_page',
             'rb_show_single_post',
             'rb_show_single_page',
-            'rb_show_archive',            
+            'rb_show_archive',
         ];
-        
-        add_settings_section( 'read_bar_section', '', '', 'read_bar_setting' ); 
+
+        add_settings_section( 'read_bar_section', '', '', 'read_bar_setting' );
 
         foreach($rb_setting_fields_array as $field_name) {
             register_setting('read_bar_setting', $field_name);
@@ -53,8 +77,8 @@ class Read_Bar_Settings {
             array($this,'rb_enable_bar_cb'),
             'read_bar_setting',
             'read_bar_section'
-        ); 
-        
+        );
+
         add_settings_field(
             'rb_background_color_setting_field',
             __('Background', 'oh-my-bar'),
@@ -86,8 +110,8 @@ class Read_Bar_Settings {
             array(
                 'default_value' => 0,
             )
-        );        
-        
+        );
+
         add_settings_field(
             'rb_bar_shadow_setting_field',
             __('Shadow', 'oh-my-bar'),
@@ -97,7 +121,7 @@ class Read_Bar_Settings {
             array(
                 'default_value' => 'on',
             )
-        ); 
+        );
 
         add_settings_field(
             'rb_bar_rounded_setting_field',
@@ -141,32 +165,47 @@ class Read_Bar_Settings {
             array(
                 'single_post_default_value' => 'on',
             )
-        );   
+        );
 
     }
 
+	/**
+	 * Enable/Disable switch/checkbox
+	 *
+	 * @since    0.1.0
+	 */
     public function rb_enable_bar_cb() {
         ?>
         <div class="switch__wrapper">
             <input type="checkbox" id="rb-enable-bar" name="rb_enable_bar" value="on" <?php checked('on', esc_attr(get_option('rb_enable_bar')), true); ?>>
-            <label class="switch__wrapper-label" for="rb-enable-bar"></label>        
-        </div>    
+            <label class="switch__wrapper-label" for="rb-enable-bar"></label>
+        </div>
         <?php
     }
 
+	/**
+     * Background color picker
+	 *
+     * * @since    0.1.0
+	 */
     public function rb_background_color_cb($args) {
         $value = (empty(get_option('rb_background_color'))) ? $args['default_value'] : get_option('rb_background_color');
-        ?>        
-        <div class="color_field-wrapper color_background"> 
+        ?>
+        <div class="color_field-wrapper color_background">
             <div class="color_switch-wrapper">
                 <div class="color-picker-bg"></div>
-                <div class="color-box" style="background-color: <?php echo esc_attr($value);?>;"></div>        
+                <div class="color-box" style="background-color: <?php echo esc_attr($value);?>;"></div>
             </div>
             <input type="hidden" name="rb_background_color" value="<?php echo esc_attr($value); ?>">
         </div>
         <?php
     }
 
+	/**
+	 * Foreground color picker
+	 *
+	 * * @since    0.1.0
+	 */
     public function rb_foreground_color_cb($args) {
         $value = (empty(get_option('rb_foreground_color'))) ? $args['default_value'] : get_option('rb_foreground_color');
         ?>
@@ -180,8 +219,13 @@ class Read_Bar_Settings {
         <?php
     }
 
+	/**
+	 * Background opacity range
+	 *
+	 * * @since    0.1.0
+	 */
     public function rb_background_opacity_cb($args) {
-        $value = (empty(get_option('rb_background_opacity'))) ? $args['default_value'] : get_option('rb_background_opacity');        
+        $value = (empty(get_option('rb_background_opacity'))) ? $args['default_value'] : get_option('rb_background_opacity');
         ?>
         <div class="range__slider slider_bg-transparent">
             <input type="range" min="0" max="100" step="1" name="rb_background_opacity" value="<?php echo esc_attr($value);?>" data-rangeslider>
@@ -193,62 +237,87 @@ class Read_Bar_Settings {
         <?php
     }
 
+	/**
+	 * Shadow switch/checkbox
+	 *
+	 * * @since    0.1.0
+	 */
     public function rb_bar_shadow_cb($args) {
         $value = (get_option('rb_bar_shadow') === 'on' || get_option('rb_bar_shadow') === 'off') ? get_option('rb_bar_shadow') : $args['default_value'];
         ?>
         <div class="switch__wrapper">
             <input type="checkbox" id="rb-bar-shadow" name="rb_bar_shadow" value="on" <?php checked('on', esc_attr($value), true); ?>>
-            <label class="switch__wrapper-label" for="rb-bar-shadow"></label>        
-        </div>    
+            <label class="switch__wrapper-label" for="rb-bar-shadow"></label>
+        </div>
         <?php
     }
 
+	/**
+	 * Rounded switch/checkbox
+	 *
+	 * * @since    0.1.0
+	 */
     public function rb_bar_rounded_cb($args) {
         $value = (get_option('rb_bar_rounded') === 'on' || get_option('rb_bar_rounded') === 'off') ? get_option('rb_bar_rounded') : $args['default_value'];
         ?>
         <div class="switch__wrapper">
             <input type="checkbox" id="rb-bar-rounded" name="rb_bar_rounded" value="on" <?php checked('on', esc_attr($value), true); ?>>
-            <label class="switch__wrapper-label" for="rb-bar-rounded"></label>                    
-        </div>        
-        <?php
-    } 
-
-    public function rb_bar_placement_cb($args) {
-        $value = (empty(get_option('rb_bar_placement'))) ? $args['default_value'] : get_option('rb_bar_placement');
-        ?>
-        <div class="bar__placement">
-            <input type="radio" id="top" class="bar__placement-option" name="rb_bar_placement" value="top" <?php checked('top', esc_attr($value), true); ?>>            
-            <input type="radio" id="bottom" class="bar__placement-option" name="rb_bar_placement" value="bottom" <?php checked('bottom', esc_attr($value), true); ?>>            
-            <label for="top" class="bar__placement-label top-align">
-                <span></span>
-            </label>          
-            <label for="bottom" class="bar__placement-label bottom-align">
-                <span></span>
-            </label>           
+            <label class="switch__wrapper-label" for="rb-bar-rounded"></label>
         </div>
         <?php
     }
 
+	/**
+	 * Placement switch/radio
+	 *
+	 * * @since    0.1.0
+	 */
+    public function rb_bar_placement_cb($args) {
+        $value = (empty(get_option('rb_bar_placement'))) ? $args['default_value'] : get_option('rb_bar_placement');
+        ?>
+        <div class="bar__placement">
+            <input type="radio" id="top" class="bar__placement-option" name="rb_bar_placement" value="top" <?php checked('top', esc_attr($value), true); ?>>
+            <input type="radio" id="bottom" class="bar__placement-option" name="rb_bar_placement" value="bottom" <?php checked('bottom', esc_attr($value), true); ?>>
+            <label for="top" class="bar__placement-label top-align">
+                <span></span>
+            </label>
+            <label for="bottom" class="bar__placement-label bottom-align">
+                <span></span>
+            </label>
+        </div>
+        <?php
+    }
+
+	/**
+	 * Bar Height range
+	 *
+	 * * @since    0.1.0
+	 */
     public function rb_bar_height_cb($args) {
         $value = (empty(get_option('rb_bar_height'))) ? $args['default_value'] : get_option('rb_bar_height');
-        ?> 
+        ?>
         <div class="range__slider slider-height">
             <input type="range" min="0" max="20" step="1" name="rb_bar_height" value="<?php echo esc_attr($value);?>" data-rangeslider>
             <div class="display__value-wrapper">
                 <span class="output-value"></span>
                 <span>px</span>
-            </div>            
+            </div>
         </div>
         <?php
     }
 
+	/**
+	 * Display switches/checkboxes
+	 *
+	 * * @since    0.1.0
+	 */
     public function rb_display_on_cb($args) {
         $single_post_value = (get_option('rb_show_single_post') === 'on' || get_option('rb_show_single_post') === 'off') ? get_option('rb_show_single_post') : $args['single_post_default_value'];
         ?>
         <div class="switch__wrapper display-on">
             <input type="checkbox" id="rb_show_home_page" name="rb_show_home_page" value="on" <?php checked('on', esc_attr(get_option('rb_show_home_page')), true); ?>>
-            <label class="switch__wrapper-label" for="rb_show_home_page"></label>        
-            <div class="switch__wrapper-text">            
+            <label class="switch__wrapper-label" for="rb_show_home_page"></label>
+            <div class="switch__wrapper-text">
                 <span><?php esc_html_e('Front-page/Home Page ', 'oh-my-bar'); ?></span>
             </div>
         </div>
@@ -256,27 +325,28 @@ class Read_Bar_Settings {
         <div class="switch__wrapper display-on">
             <input type="checkbox" id="rb_show_single_post" name="rb_show_single_post" value="on" <?php checked('on', esc_attr($single_post_value), true); ?>>
             <label class="switch__wrapper-label" for="rb_show_single_post"></label>
-            <div class="switch__wrapper-text">                    
+            <div class="switch__wrapper-text">
                 <span><?php esc_html_e('Single Post', 'oh-my-bar'); ?></span>
             </div>
         </div>
 
         <div class="switch__wrapper display-on">
             <input type="checkbox" id="rb_show_single_page" name="rb_show_single_page" value="on" <?php checked('on', esc_attr(get_option('rb_show_single_page')), true); ?>>
-            <label class="switch__wrapper-label" for="rb_show_single_page"><span></label>        
-            <div class="switch__wrapper-text">            
+            <label class="switch__wrapper-label" for="rb_show_single_page"><span></label>
+            <div class="switch__wrapper-text">
                 <?php esc_html_e('Single Page', 'oh-my-bar'); ?></span>
             </div>
-        </div> 
+        </div>
 
         <div class="switch__wrapper display-on">
             <input type="checkbox" id="rb_show_archive" name="rb_show_archive" value="on" <?php checked('on', esc_attr(get_option('rb_show_archive')), true); ?>>
-            <label class="switch__wrapper-label" for="rb_show_archive"></label>        
-            <div class="switch__wrapper-text">            
+            <label class="switch__wrapper-label" for="rb_show_archive"></label>
+            <div class="switch__wrapper-text">
                 <span><?php esc_html_e('Archives & Categories', 'oh-my-bar'); ?></span>
             </div>
-        </div>      
-        <?php    
+        </div>
+        <?php
     }
 }
+
 new Read_Bar_Settings();

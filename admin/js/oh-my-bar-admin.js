@@ -3,7 +3,7 @@
 
   $(document).ready(function () {
     /*
-     * All variables
+     * Color elements variables
      */
     const colorBg = document.querySelector(".color_background input");
     const colorFg = document.querySelector(".color_foreground input");
@@ -24,6 +24,9 @@
       output.textContent = value;
     }
 
+    /**
+     * Input range event
+     */
     $(document).on(
       "input",
       'input[type="range"], ' + range_selector,
@@ -31,13 +34,11 @@
         valueOutput(e.target);
       }
     );
-
     $(document).on("input", "input[data-rangeslider]", function (e) {
       $(range_selector, e.target.parentNode).rangeslider({
         polyfill: false,
       });
     });
-
     $element.rangeslider({
       polyfill: false,
       onInit: function () {
