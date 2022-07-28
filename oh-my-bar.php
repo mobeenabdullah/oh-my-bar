@@ -15,14 +15,13 @@
  * @wordpress-plugin
  * Plugin Name:       Oh My Bar
  * Plugin URI:        https://github.com/mobeenabdullah/oh-my-bar
- * Description:       This is a short description of what the plugin does. It's displayed in the WordPress admin area.
+ * Description:       Oh My Bar is a WordPress plugin that creates a reading progress bar on top/bottom of the site that helps users to understand that how far they're from finishing the article/page
  * Version:           0.1.0
  * Author:            Mobeen Abdullah
  * Author URI:        https://mobeenabdullah.com
  * License:           GPL-2.0+
  * License URI:       http://www.gnu.org/licenses/gpl-2.0.txt
  * Text Domain:       oh-my-bar
- * Domain Path:       /languages
  */
 
 // If this file is called directly, abort.
