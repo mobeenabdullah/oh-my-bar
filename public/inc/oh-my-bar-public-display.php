@@ -74,7 +74,7 @@ class Display_Read_Bar {
                 <?php if($this->bar_rounded  === 'off') { ?>
                     border-radius: 0;
                 <?php } else { ?>
-                    border-radius: 50px;
+                    border-radius: 0 10px 10px 0;
                 <?php } ?>
             }
             progress.my_progressbar::-moz-progress-bar {
@@ -85,22 +85,12 @@ class Display_Read_Bar {
                 <?php } else { ?>
                         box-shadow: 0px 0px 10px 0px <?php echo esc_html($this->foreground_color); ?>bf;
                 <?php } ?>
-            }
-            <?php $total_height = $this->bar_height / 1.5; ?>
-            progress.my_progressbar.left_progressbar, progress.my_progressbar.right_progressbar {
-                -webkit-appearance: none;
-                appearance: none;
-                position: fixed;
-                top: 0;
-                left: 0;
-                transform: translate(calc(-50% + <?php echo esc_html($total_height .'px'); ?>), calc(50vh - 50%)) rotate(90deg);
-                width: 100vh;
-            }
-            progress.my_progressbar.right_progressbar {
-                transform: translate(calc(50% + -<?php echo esc_html($total_height .'px'); ?>), calc(50vh - 50%)) rotate(90deg);
-                left: inherit;
-                right: 0 !important;
-            }
+                <?php if($this->bar_rounded  === 'off') { ?>
+                    border-radius: 0;
+                <?php } else { ?>
+                    border-radius: 0 10px 10px 0;
+                <?php } ?>
+            }        
         </style>
         <?php
     }

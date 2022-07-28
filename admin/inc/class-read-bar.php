@@ -152,7 +152,7 @@ class Read_Bar_Settings {
             'read_bar_setting',
             'read_bar_section',
             array(
-                'default_value' => 10,
+                'default_value' => 8,
             )
         );
 

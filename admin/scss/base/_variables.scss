@@ -9,6 +9,12 @@ $light-gray-1: #f6f6f6 !default;
 $light-gray-2: #dddddd !default;
 $dark-gray: #666666 !default;
 $black: #000 !default;
+$notification-success-bg: #d4edda !default;
+$notification-success-text: #155724 !default;
+$notification-success-border: #c3e6cb !default;
+$notification-error-bg: #f8d7da !default;
+$notification-error-text: #721c24 !default;
+$notification-error-border: #f5c6cb !default;
 
 // colors-map
 $colors: (
@@ -18,5 +24,12 @@ $colors: (
   "dark-gray": $dark-gray,
   "light-gray-1": $light-gray-1,
   "light-gray-2": $light-gray-2,
+  "notification-success-bg": $notification-success-bg,
+  "notification-success-text": $notification-success-text,
+  "notification-success-border": $notification-success-border,
+  "notification-error-bg": $notification-error-bg,
+  "notification-error-text": $notification-error-text,
+  "notification-error-border": $notification-error-border,
+
   "black": $black,
 ) !default;
