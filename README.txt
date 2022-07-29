@@ -3,7 +3,7 @@ Contributors: mobeen-abdullah
 Donate link: https://github.com/mobeenabdullah/oh-my-bar
 Tags: top bar, notification bar, sticky bar, floating bar, bar
 Requires at least: 4.7
-Tested up to: 6.1
+Tested up to: 6.0.1
 Requires PHP: 7.0
 Stable tag: 0.1.0
 License: GPLv2 or later
