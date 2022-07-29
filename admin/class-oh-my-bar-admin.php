@@ -76,7 +76,8 @@ class Oh_My_Bar_Admin {
 		 * between the defined hooks and the functions defined in this
 		 * class.
 		 */
-		wp_enqueue_style('color-picker-nano', 'https://cdn.jsdelivr.net/npm/@simonwep/pickr/dist/themes/nano.min.css', array(), $this->version, 'all');
+		
+		wp_enqueue_style( 'color-pickr-nano-theme', plugin_dir_url( __FILE__ ) . 'css/nano.min.css', array(), $this->version, 'all' );
 		wp_enqueue_style( 'range-slider', plugin_dir_url( __FILE__ ) . 'css/rangeslider.css', array(), $this->version, 'all' );
 		wp_enqueue_style( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'css/oh-my-bar-admin.css', array(), $this->version, 'all' );
 
@@ -100,7 +101,8 @@ class Oh_My_Bar_Admin {
 		 * between the defined hooks and the functions defined in this
 		 * class.
 		 */
-		wp_enqueue_script('color-picker', 'https://cdn.jsdelivr.net/npm/@simonwep/pickr/dist/pickr.min.js', array( 'jquery' ), $this->version, true);        
+		
+		wp_enqueue_script('color-pickr', plugin_dir_url(__FILE__) . 'js/pickr.min.js', array( 'jquery' ), $this->version, true);
 		wp_enqueue_script('range-slider', plugin_dir_url(__FILE__) . 'js/rangeslider.js', array( 'jquery' ), $this->version, true);
 		wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/oh-my-bar-admin.js', array( 'jquery' ), $this->version, true);
 
